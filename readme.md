@@ -88,17 +88,17 @@ npm run start
 
 ```ts
 /** 对话上下文 */
-let messages: { role: "user" | "assistant"; content: string }[] = [];
+let messages  = [];
 
 chat("你好 chatgpt");
 
 // 聊天方法
-async function chat(content: string) {
-  const user_message: { role: "user" | "assistant"; content: string } = {
+async function chat(content) {
+  const user_message= {
     role: "user",
     content: content,
   };
-  const assistant_message: { role: "user" | "assistant"; content: string } = {
+  const assistant_message= {
     role: "assistant",
     content: "",
   };
@@ -130,13 +130,14 @@ async function chat(content: string) {
 /** 流式聊天 */
 async function streamChat(
   /** 上下文 */
-  messages: { role: "user" | "assistant"; content: string }[],
+  messages,
   /** 回调 */
-  callback: (data: { done: boolean; error: boolean; content: string }) => void
+  callback
 ) {
-  const res = await fetch("http://xxx.xxx.xxx.xxx/chat", {
+  const res = await fetch("http://xxx.xxx.xxx.xxx:3666/chat", {
     headers: {
       "Content-Type": "application/json",
+      "authorization":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     method: "POST",
     mode: "cors",
