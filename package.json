@@ -1,15 +1,15 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "node-fetch": "^2.6.7",
-    "openai": "^3.2.1",
-    "dotenv": "^16.0.3"
+    "openai": "^3.2.1"
   },
   "name": "openai-api-server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/app.js",
+    "start": "tsc && node lib/app.js",
     "dev": "nodemon --config nodemon.json src/app.ts"
   },
   "author": "",
