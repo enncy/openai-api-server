@@ -32,12 +32,17 @@ export async function OpenAIStream(payload: CreateChatCompletionRequest, callbac
                     return;
                 }
                 const json = JSON.parse(msg);
-                const text = json.choices[0].delta?.content || "";
-                callback({
-                    done: false,
-                    error: false,
-                    content: text,
-                });
+
+                // 一般 chatgpt 第一个chunk会返回 role 类型，第二个才是内容
+                if (json.choices[0].delta?.content) {
+                    const text = json.choices[0].delta.content || "";
+                    callback({
+                        done: false,
+                        error: false,
+                        content: text,
+                    });
+                }
+
             }
         } catch (e) {
             try {

@@ -24,6 +24,8 @@
 OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # 服务器访问KEY，自定义，前端调用时在请求头中带上即可，看下面示例，主要是防止IP泄露后被别人调用
 AUTHORIZATION_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# 服务器端口
+SERVER_PORT=3666
 ```
 
 ## 部署
@@ -51,7 +53,7 @@ npm run start
 
 参数:
 
-- `model` : chatgpt 模型
+- `model` : chatgpt 模型  
 - `messages` : 对话上下文，每次新的对话可以追加到数组最后，需要对 chatgpt 的返回数据进行存储，第二次调用时一并传递，实现记忆型对话功能。
 
 返回类型: stream

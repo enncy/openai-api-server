@@ -22,6 +22,7 @@ export function controller(app: Application) {
                     model: req.body.model || "gpt-3.5-turbo",
                     // 设置对话内容（上下文）
                     messages: req.body.messages || [],
+                    max_tokens: 4096,
                     stream: true,
                 }, ({ done, error, content }) => {
                     if (done) {
