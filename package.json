@@ -10,7 +10,9 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node lib/app.js",
-    "dev": "nodemon --config nodemon.json src/app.ts"
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "build:docker": "docker build -t chatgpt-api-server .",
+    "run:docker": "docker run -d -p 3666:3666 --env-file .env --name chatgpt-api-server chatgpt-api-server"
   },
   "author": "",
   "license": "ISC",
